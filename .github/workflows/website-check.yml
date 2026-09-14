@@ -1,0 +1,22 @@
+name: Website check
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  check-website:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Get the project files
+        uses: actions/checkout@v4
+
+      - name: Check JavaScript
+        run: node --check js/script.js
+
+      - name: Check HTML pages use the CSS file
+        run: |
+          for page in *.html; do
+            grep -q 'css/style.css' "$page"
+          done
