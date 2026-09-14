@@ -1,0 +1,551 @@
+/* Styling for Maka Nana Shisanyama website */
+/* Part 2 - CSS styling and responsive design */
+
+/* ===== CSS Reset ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ===== Colours and base settings ===== */
+:root {
+    --color-black: #1a1a1a;
+    --color-red: #c8102e;
+    --color-gold: #d99a2b;
+    --color-cream: #fdf6ec;
+    --color-white: #ffffff;
+    --color-text: #2b2b2b;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--color-text);
+    background-color: var(--color-cream);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+h1, h2, h3 {
+    font-family: "Arial Black", Impact, sans-serif;
+    letter-spacing: 1px;
+}
+
+/* ===== Header ===== */
+header {
+    background-color: var(--color-black);
+    color: var(--color-white);
+    text-align: center;
+    padding: 1.5rem 1rem;
+}
+
+header h1 {
+    font-size: 2rem;
+}
+
+header p {
+    color: var(--color-gold);
+    margin-top: 0.3rem;
+}
+
+/* Single-row restaurant header */
+.site-header {
+    min-height: 92px;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 0.65rem clamp(1rem, 5vw, 4.5rem);
+    background: var(--color-white);
+    color: var(--color-black);
+    text-align: left;
+    border-bottom: 1px solid #e5e1da;
+}
+
+body:has(> .site-header) > header:not(.site-header),
+body:has(> .site-header) > nav { display: none; }
+
+
+.brand-logo { display: flex; flex: 0 0 auto; align-items: center; }
+.brand-logo img {
+    width: 92px;
+    height: 72px;
+    object-fit: contain;
+    mix-blend-mode: multiply;
+    opacity: 0.9;
+}
+
+.site-nav { display: flex; align-items: center; gap: 2rem; background: transparent; }
+.menu-toggle { display: none; padding: .55rem; background: transparent; color: var(--color-black); }
+.menu-toggle span { display: block; width: 24px; height: 2px; margin: 4px 0; background: currentColor; border-radius: 2px; }
+.site-nav a, .account-link {
+    color: var(--color-black);
+    font-weight: 700;
+    text-decoration: none;
+    padding: 0;
+}
+.site-nav a:hover, .site-nav a:focus, .account-link:hover, .account-link:focus { color: var(--color-red); }
+.header-actions { display: flex; align-items: center; gap: 1.5rem; margin-left: auto; }
+.cart-link { position: relative; display: grid; place-items: center; width: 48px; height: 48px; color: var(--color-black); border-left: 1px solid #ddd6ca; }
+.cart-link svg { width: 29px; height: 29px; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.8; }
+.cart-link .cart-count { position: absolute; top: 1px; right: 0; margin: 0; }
+
+/* ===== Navigation ===== */
+nav {
+    background-color: var(--color-red);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+nav li {
+    margin: 0;
+}
+
+nav a {
+    display: block;
+    color: var(--color-white);
+    text-decoration: none;
+    padding: 0.9rem 1.2rem;
+    font-weight: bold;
+}
+
+nav a:hover,
+nav a:focus {
+    background-color: transparent;
+    color: inherit;
+}
+
+/* ===== Main content ===== */
+main {
+    max-width: 1000px;
+    width: 100%;
+    min-width: 0;
+    margin: 0 auto;
+    padding: 1.5rem;
+    flex: 1 0 auto;
+    overflow-x: hidden;
+}
+
+main section {
+    margin-bottom: 2.5rem;
+}
+
+main h2 {
+    color: var(--color-black);
+    border-bottom: 3px solid var(--color-gold);
+    padding-bottom: 0.4rem;
+    margin-bottom: 1rem;
+}
+
+main img {
+    max-width: 100%;
+    max-height: 400px;
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+/* ===== Hero section (homepage welcome) ===== */
+.hero {
+    text-align: center;
+}
+
+.hero img {
+    max-height: none;
+    height: auto;
+    object-fit: contain;
+    width: 100%;
+}
+
+.story-photo { height: auto; max-height: none; object-fit: contain; }
+
+.hero p {
+    margin: 1rem auto;
+    max-width: 600px;
+}
+
+/* ===== Buttons and button-style links ===== */
+.btn,
+button {
+    display: inline-block;
+    background-color: var(--color-red);
+    color: var(--color-white);
+    border: none;
+    padding: 0.7rem 1.4rem;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 4px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.btn:hover,
+.btn:focus,
+button:hover,
+button:focus {
+    background-color: var(--color-red);
+    color: var(--color-white);
+}
+
+.btn:active,
+button:active {
+    background-color: var(--color-red);
+    color: var(--color-white);
+}
+
+/* Hovering and pressing must not recolour controls. */
+.menu-toggle:hover, .menu-toggle:focus, .menu-toggle:active { background: transparent; color: var(--color-black); }
+.static-meal-panel summary:hover, .static-meal-panel summary:focus, .static-meal-panel summary:active { background: var(--color-black); color: var(--color-white); }
+.carousel-arrow:hover, .carousel-arrow:focus, .carousel-arrow:active { background: var(--color-red); color: var(--color-white); }
+.site-nav a:hover, .site-nav a:focus, .account-link:hover, .account-link:focus { color: var(--color-black); }
+.btn:hover, .btn:focus, .btn:active,
+.add-to-cart:hover, .add-to-cart:focus, .add-to-cart:active,
+.cart-change:hover, .cart-change:focus, .cart-change:active,
+.cart-remove:hover, .cart-remove:focus, .cart-remove:active { background: var(--color-red); color: var(--color-white); }
+
+/* ===== Popular dishes cards (Flexbox) ===== */
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    align-items: stretch;
+    width: 100%;
+    min-width: 0;
+}
+
+.cards h2,
+.cards > p {
+    flex-basis: 100%;
+}
+
+.cards article {
+    background-color: var(--color-white);
+    border: 1px solid #e0d6c4;
+    border-radius: 6px;
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.2s ease;
+    flex: 1 1 250px;
+    min-width: 0;
+    max-width: 100%;
+}
+
+.cards article:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+.cards-carousel { display: contents; }
+.carousel-controls { display: none; }
+
+.cards article img {
+    max-height: 140px;
+    object-fit: cover;
+    width: 100%;
+}
+
+/* Clickable meal photos open in a full-size preview. */
+main img { cursor: zoom-in; }
+.image-preview {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+    z-index: 1000;
+    display: none;
+    place-items: center;
+    padding: 2rem;
+    background: rgba(0, 0, 0, .85);
+}
+.image-preview.is-open { display: grid; }
+.image-preview img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: auto;
+    height: auto;
+    max-width: calc(100vw - 2rem);
+    max-height: calc(100dvh - 4rem);
+    object-fit: contain;
+    transform: translate(-50%, -50%);
+    border-radius: 6px;
+    box-shadow: 0 12px 36px rgba(0,0,0,.45);
+}
+.image-preview-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 1;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border-radius: 50%;
+    font-size: 2rem;
+    line-height: 1;
+    background: var(--color-white);
+    color: var(--color-black);
+}
+body.preview-open { overflow: hidden; }
+
+.price { color: var(--color-red); font-size: 1.25rem; font-weight: bold; margin: 0.5rem 0; }
+.cart-count { display: inline-grid; place-items: center; min-width: 1.4rem; height: 1.4rem; padding: 0 0.25rem; margin-left: 0.2rem; background: var(--color-gold); color: var(--color-black); border-radius: 999px; font-size: 0.8rem; }
+.menu-intro { text-align: center; }
+.meal-switcher { display: flex; justify-content: center; flex-wrap: wrap; gap: 1rem; margin-top: 1.5rem; }
+.static-meal-panel { margin-bottom: 1rem; }
+.static-meal-panel { min-width: 0; }
+.static-meal-panel summary { list-style: none; background: var(--color-black); color: var(--color-white); cursor: pointer; font-weight: bold; padding: .8rem 1.3rem; border-radius: 4px; text-align: center; }
+.static-meal-panel summary::-webkit-details-marker { display: none; }
+.static-meal-panel[open] summary { background: var(--color-black); color: var(--color-white); }
+.static-meal-panel .panel-content { padding-top: 1rem; overflow-x: auto; animation: reveal-panel .35s ease-out; }
+.takeaway-control { display: flex; align-items: center; justify-content: center; gap: .4rem; }
+.takeaway-control button { padding: .2rem .55rem; }
+.takeaway-control select { width: 150px; padding: .45rem; }
+.single-meals td:nth-child(2) { text-align: left; }
+.single-meals select { min-width: 170px; padding: .5rem; }
+.meal-toggle { min-width: 210px; background: var(--color-black); }
+.meal-toggle.is-open, .meal-toggle:hover, .meal-toggle:focus { background: var(--color-red); color: var(--color-white); }
+.meal-panel { animation: reveal-panel .35s ease-out; }
+.account-choice { display: flex; align-items: flex-start; gap: 1rem; margin: 1.5rem 0; }
+.signup-details summary { list-style: none; background: var(--color-red); color: var(--color-white); cursor: pointer; font-weight: bold; padding: .7rem 1.4rem; border-radius: 4px; }
+.signup-details summary::-webkit-details-marker { display: none; }
+.signup-details form { margin-top: 1rem; }
+.signup-details[open] summary,
+.account-choice:has(.signup-details[open]) > .btn { display: none; }
+.account-helper { margin-top: 1rem; }
+@keyframes reveal-panel { from { opacity: 0; transform: translateY(-12px); } to { opacity: 1; transform: translateY(0); } }
+.takeaway-only { display: flex; align-items: center; gap: 1rem; justify-content: space-between; background: var(--color-white); border: 1px solid #e0d6c4; border-left: 5px solid var(--color-gold); padding: 1rem 1.25rem; border-radius: 6px; }
+.takeaway-only .price { margin-left: auto; }
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+    align-items: stretch;
+}
+.menu-grid, .menu-card { width: 100%; min-width: 0; max-width: 100%; }
+.menu-card { display: flex; flex-direction: column; background: var(--color-white); border: 1px solid #e0d6c4; border-radius: 10px; overflow: hidden; padding: .8rem; text-align: center; box-shadow: 0 2px 4px rgba(0,0,0,.08); }
+.menu-card img { height: 160px; width: 100%; object-fit: cover; border-radius: 7px; margin-bottom: .75rem; }
+.menu-card h3, .menu-card p { padding: 0 .8rem; }
+.menu-card button { align-self: center; margin-top: auto; }
+.quantity-button { padding: .15rem .55rem; margin: 0 .2rem; }
+.table-wrap { overflow-x: auto; }
+
+/* ===== Forms (Enquiry, Register, Contact) ===== */
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    background-color: var(--color-white);
+    padding: 1.5rem;
+    border-radius: 6px;
+    border: 1px solid #e0d6c4;
+}
+
+label {
+    font-weight: bold;
+    margin-top: 1rem;
+    margin-bottom: 0.3rem;
+}
+
+input,
+textarea,
+select {
+    padding: 0.6rem;
+    border: 1px solid #c9c0af;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    outline: 2px solid var(--color-red);
+}
+
+button, .btn, .site-nav a { -webkit-tap-highlight-color: transparent; }
+
+form button {
+    margin-top: 1.2rem;
+    align-self: flex-start;
+}
+
+/* ===== Tables (Menu, Cart) ===== */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--color-white);
+    margin-top: 1rem;
+}
+
+th, td {
+    text-align: left;
+    padding: 0.8rem;
+    border-bottom: 1px solid #e0d6c4;
+}
+
+th {
+    background-color: var(--color-black);
+    color: var(--color-white);
+}
+
+tr:hover {
+    background-color: var(--color-cream);
+}
+
+/* ===== Locations list on Contact page ===== */
+main ul {
+    margin-left: 1.2rem;
+}
+
+/* ===== Footer ===== */
+footer {
+    background-color: var(--color-white);
+    color: var(--color-text);
+    text-align: center;
+    padding: 1.5rem 1rem;
+    border-top: 1px solid #e5e1da;
+    margin-top: auto;
+}
+
+footer p {
+    margin: 0.2rem 0;
+}
+
+/* One identical footer on every page, including pages that originally had fewer details. */
+footer p { display: none; }
+footer::before {
+    content: "Phone / WhatsApp: +27 71 840 5670\A Find us near Spar, Durban, KwaZulu-Natal\A © 2026 Maka Nana Shisanyama";
+    white-space: pre-line;
+    line-height: 2;
+}
+
+/* =====================================================
+   RESPONSIVE DESIGN
+   Breakpoints: desktop (default), tablet (768px), mobile (480px)
+   ===================================================== */
+
+/* ----- Tablet ----- */
+@media (max-width: 768px) {
+
+    .site-header { gap: 1rem; padding: .55rem 1rem; }
+    .site-nav { gap: 1rem; }
+    .menu-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+    main {
+        padding: 1rem;
+    }
+
+    .cards article {
+        flex-basis: 45%;
+    }
+
+    header h1 {
+        font-size: 1.6rem;
+    }
+}
+
+/* ----- Mobile ----- */
+@media (max-width: 600px) {
+
+    .site-header { display: grid; grid-template-columns: auto 64px minmax(0, 1fr); min-height: 68px; gap: .35rem; padding: .4rem .75rem; position: relative; }
+    .menu-toggle { display: block; grid-column: 1; grid-row: 1; }
+    .brand-logo { grid-column: 2; grid-row: 1; }
+    .brand-logo img { width: 58px; height: 52px; }
+    .site-nav { display: none; position: absolute; z-index: 30; top: calc(100% + 1px); left: .75rem; width: min(250px, calc(100vw - 1.5rem)); padding: .6rem; background: var(--color-white); border: 1px solid #e5e1da; border-radius: 0 0 8px 8px; box-shadow: 0 8px 18px rgba(0,0,0,.16); }
+    .site-header.menu-open .site-nav { display: flex; flex-direction: column; align-items: stretch; gap: 0; }
+    .site-nav a { padding: .75rem 1rem; }
+    .header-actions { grid-column: 3; grid-row: 1; justify-self: end; gap: .6rem; margin-left: 0; }
+    .account-link { font-size: .9rem; }
+    .menu-grid { grid-template-columns: 1fr; }
+
+    nav ul {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .cards article {
+        flex-basis: 100%;
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    /* Swipeable food cards keep mobile pages short. */
+    .cards { display: block; }
+    .cards-carousel,
+    .static-meal-panel .panel-content {
+        display: flex;
+        gap: 1rem;
+        width: 100%;
+        overflow-x: auto;
+        overflow-y: hidden;
+        padding: .25rem .15rem .75rem;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
+    }
+    .cards-carousel::-webkit-scrollbar,
+    .static-meal-panel .panel-content::-webkit-scrollbar { display: none; }
+    .cards-carousel .cards article,
+    .cards-carousel article,
+    .menu-grid .menu-card { flex: 0 0 calc(100vw - 3rem); scroll-snap-align: start; }
+    .cards-carousel .cards article { width: auto; }
+    .static-meal-panel .panel-content .single-meals { display: block; min-width: calc(100vw - 3rem); }
+    .static-meal-panel .panel-content .single-meals tbody { display: flex; gap: 1rem; }
+    .static-meal-panel .panel-content .single-meals tr { flex: 0 0 calc(100vw - 3rem); margin: 0; scroll-snap-align: start; }
+    .static-meal-panel .panel-content .menu-grid { display: flex; gap: 1rem; width: max-content; grid-template-columns: none; }
+    .static-meal-panel .panel-content .menu-card { width: calc(100vw - 3rem); }
+    .carousel-controls { display: flex; align-items: center; justify-content: center; gap: .75rem; margin: .25rem 0 1rem; font-size: .85rem; color: var(--color-text); }
+    .carousel-arrow { width: 38px; height: 38px; padding: 0; border-radius: 50%; font-size: 1.7rem; line-height: 1; }
+
+    header h1 {
+        font-size: 1.3rem;
+    }
+
+    main h2 {
+        font-size: 1.2rem;
+    }
+
+    form {
+        padding: 1rem;
+    }
+
+    th, td {
+        padding: 0.5rem;
+        font-size: 0.9rem;
+    }
+
+    /* Single meals become easy-to-read cards instead of a wide table on phones. */
+    .single-meals,
+    .single-meals tbody,
+    .single-meals tr,
+    .single-meals td { display: block; width: 100%; }
+    .single-meals thead { display: none; }
+    .single-meals tr {
+        padding: 1rem;
+        border: 1px solid #e0d6c4;
+        border-radius: 6px;
+        margin-bottom: .85rem;
+        background: var(--color-white);
+    }
+    .single-meals td { border: 0; padding: .35rem 0; text-align: left; }
+    .single-meals td:first-child { font-size: 1.1rem; font-weight: 700; }
+    .single-meals select,
+    .single-meals .add-to-cart { width: 100%; max-width: none; }
+    .single-meals td:nth-child(3) { line-height: 1.8; color: var(--color-text); }
+    .static-meal-panel .panel-content .single-meals,
+    .static-meal-panel .panel-content .single-meals tbody { display: flex; width: max-content; min-width: 0; gap: 1rem; }
+    .static-meal-panel .panel-content .single-meals tr { display: block; width: calc(100vw - 3rem); flex: 0 0 calc(100vw - 3rem); margin: 0; }
+    .takeaway-only { align-items: flex-start; flex-direction: column; }
+    .takeaway-only .price { margin-left: 0; }
+}
