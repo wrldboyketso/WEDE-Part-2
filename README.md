@@ -13,7 +13,7 @@ This website is for Maka Nana Shisanyama in Durban. It gives customers a place t
 
 ## Pages
 
-- Home: welcome message and popular meals
+- Home (`home.html`): welcome message and popular meals
 - About: story, mission, and vision
 - Menu: single meals and combo meals
 - Cart: shows items added by the customer
@@ -77,6 +77,7 @@ I tested the website on a PC and on a real mobile phone. The mobile screenshots 
 
 ```text
 index.html
+home.html
 about.html
 menu.html
 cart.html

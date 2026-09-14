@@ -208,8 +208,8 @@ if (header) {
 
     if (cartLink) cartLink.innerHTML = 'Cart <span class="cart-count">0</span>';
 
-    if (navigation && !navigation.querySelector('[href="index.html"]')) {
-        navigation.insertAdjacentHTML('afterbegin', '<a href="index.html">Home</a>');
+    if (navigation && !navigation.querySelector('[href="home.html"]')) {
+        navigation.insertAdjacentHTML('afterbegin', '<a href="home.html">Home</a>');
     }
 
     const menuButton = document.createElement('button');
