@@ -23,7 +23,7 @@ This website is for Maka Nana Shisanyama in Durban. It gives customers a place t
 
 ## Part 2: CSS and responsive design
 
-Part 2 is complete for now. The work done in this part is:
+Part 2 is complete. The work done in this part is:
 
 - One external CSS file: `css/style.css`
 - Same colours on all pages: cream, black, red, and gold
